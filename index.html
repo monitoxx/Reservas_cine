@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reservas_Cine</title>
+	<script>
+
+		let usuario, clave, btn_enviar; 
+
+		window.onload = function(){
+			usuario = document.getElementById("usuario");
+			clave = document.getElementById("clave");
+			btn_enviar = document.getElementById("btn_enviar");
+
+			btn_enviar.addEventListener("click",obtenerDatos);
+		}
+
+		function obtenerDatos(evento){
+
+			let usuario_ok = localStorage.getItem("usuario");
+			let clave_ok = localStorage.getItem("clave");
+			console.log(localStorage.getItem("usuario"),localStorage.getItem("clave"));
+
+			if (usuario.value != "" && clave.value != "") 
+			{
+				if (usuario.value==usuario_ok && clave.value== clave_ok) 
+				{
+					alert("Inicio de sesión exitoso.");
+					localStorage.setItem("esta_logeado","true");//lo contrario de get. setItem es para colocar lo que uno quiera.... Además solo admite datos en cadena, por eso se escribe así. 
+					location.href = "reserva.html"; //me lleva a donde yo le digo que me lleve.
+				}
+				else{
+					alert("Usuario o clave incorrectas.");
+					usuario.value = "";
+					clave.value = "";
+					// Esto se hizo para que al aceptar el mensaje, los campos quedaran vacíos para que la persona los pueda modificar, sin necesidad de borrarlos manuealmente.
+					localStorage.setItem("esta_logeado","false");
+				}
+			}
+			else
+			{
+				alert("Error, campos vacíos.");
+				localStorage.setItem("esta_logeado","false");
+
+			}
+		}
+	</script>	
+</head>
+<body>
+	<form id="logeo">
+		<input type="text" placeholder="Usuario" id="usuario"> <br> <!--<br> es como si uno hiciera enter a una linea-->
+		<input type="password" placeholder="Password" id="clave"> <br>
+
+		<a href="registro.html">Registrate</a> <br><br> <!-- este es un doble espacio-->
+
+		<input type="button" value="Enviar" id="btn_enviar">
+	</form> <!-- form es para hacer formularios -->
+</body>
+</html>
