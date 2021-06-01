@@ -19,7 +19,7 @@
 		function obtenerDatos(evento){
 
 			let usuario_ok = localStorage.getItem("usuario");
-			let clave_ok = localStorage.getItem("clave");
+			let clave_ok = localStorage.getItem("clave"); //estamos diciendo que -clave- será el valor de la nueva variable clave_ok
 			console.log(localStorage.getItem("usuario"),localStorage.getItem("clave"));
 
 			if (usuario.value != "" && clave.value != "") 
@@ -50,7 +50,7 @@
 <body>
 	<form id="logeo">
 		<input type="text" placeholder="Usuario" id="usuario"> <br> <!--<br> es como si uno hiciera enter a una linea-->
-		<input type="password" placeholder="Password" id="clave"> <br>
+		<input type="password" placeholder="Contraseña" id="clave"> <br>
 
 		<a href="registro.html">Registrate</a> <br><br> <!-- este es un doble espacio-->
 

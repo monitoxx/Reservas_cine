@@ -3,12 +3,68 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Registrate !</title>
+	<script>
+		let usuario, nombre, correo, clave, clave2, btn_registro; 
+
+		window.onload = function(){
+			usuario = document.getElementById("usuario");
+			nombre = document.getElementById("nombre");
+			correo = document.getElementById("correo");
+			clave = document.getElementById("clave");
+			clave2 = document.getElementById("clave2")
+			btn_registro = document.getElementById("btn_registro");
+
+			btn_registro.addEventListener("click",obtenerDatos);
+		}
+
+		function obtenerDatos(evento){
+
+			let usuario_ok = localStorage.getItem("usuario");
+			let nombre_ok = localStorage.getItem("nombre");
+			let correo_ok = localStorage.getItem("correo");
+			let clave_ok = localStorage.getItem("clave"); //estamos diciendo que -clave- será el valor de la nueva variable clave_ok
+			let clave2_ok = localStorage.getItem("clave2");
+			
+			console.log(localStorage.setItem("usuario",usuario.value),localStorage.setItem("clave",clave.value));
+
+			if (usuario.value != "" && nombre.value != "" && correo.value != "" && clave.value != "" && clave2.value != "") 
+			{
+				if(clave.value == clave2.value)
+				{
+					alert("Se ha registrado exitosamente");
+					localStorage.setItem("esta_registrado","true");//lo contrario de get. setItem es para colocar lo que uno quiera.... Además solo admite datos en cadena, por eso se escribe así. 
+					location.href = "index.html"; //me lleva a donde yo le digo que me lleve.
+				}
+				else{
+					alert("No coincide la contraseña");
+				localStorage.setItem("esta_registrado","false");
+				}
+			}
+			else
+			{
+				alert("Error, campos vacíos.");
+				localStorage.setItem("esta_registrado","false");
+
+			}
+			
+		}
+	</script>
 </head>
 <body>
 	<!--
 	-Crear el formulario de registro, como muestra la referencia.(https://juanp-ctrl.github.io/Frontend_PPE/registro.html)
 	-Validar que los campos no estén vacíos
 	-Guardar los datos del usuario en el localstorage-->
+	<form id="registro">
+		<input type="text" placeholder="Usuario" id="usuario"> <br> <!--<br> es como si uno hiciera enter a una linea-->
+		<input type="text" placeholder="Nombre" id="nombre"> <br>
+		<input type="text" placeholder="Correo electrónico" id="correo"> <br>
+		<input type="password" placeholder="Contraseña" id="clave"> <br>
+		<input type="password" placeholder="Confirmar contraseña" id="clave2"> <br><br>
+
+		<!-- <button class="btn btn-style mt-sm-3" type="submit" id="registrar" onclick="register()">Registrarse</button> -->
+		<input type="button" value="Registrarse" id="btn_registro">
+	</form> <!-- form es para hacer formularios -->
 </body>
 </html>
