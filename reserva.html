@@ -14,8 +14,8 @@
 		}
 		#cuadricula{
 			display: grid;
-			grid-template-columns: repeat(10, 1fr);
-			grid-template-rows: repeat(10, 1fr);
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(3, 1fr);
 			grid-column-gap: 13px;
 			grid-row-gap: 6px;
 			width: 500px;
@@ -24,12 +24,164 @@
 			border: 1px solid black;
 			background-color: #098484;
 		}
+		.disponible{
+			border: 1px solid black;
+			text-align: center;
+		}
+		.reservado{
+			/*transform: rotate(-45deg);*/
+			border: 1px solid black;
+			text-align: center;
+			background-color: deeppink;
+			color: whitesmoke;
+		}
+		/*.rotar{
+			transform: rotate(-35deg);
+		}*/
 
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		#abrir{
+		  width:150px;
+		  height:50px;
+		  display:block;
+		  margin:100px auto;
+		}
+		.show{
+		  display:block;
+		}
+		.hidden{
+		  display:none;
+		}
+		.ligthbox{
+			position: fixed;
+			top:0px;
+			left:0px;
+			width: 100%;
+			height: 100%;
+			background:rgba(0,0,0,.6);
+		}
+		.login_content{
+			position: relative;
+			background-color: #999;
+			width: 353px;
+			height: 230px;
+			margin-right: auto;
+			margin-left: auto;
+			top:50%;
+			margin-top: -115px;
+			border-radius: 5%;
+		}
+		.close_button{
+			position: absolute;
+			background-color: #333;
+			top: 10px;
+			right: 10px;
+			color: white;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			border-radius: 20px;
+			cursor: pointer;
+			font-size: 23px;
+			line-height: 34px;
+			font-family: verdana;
+		}
+		.close_button:hover{
+			background-color: white;
+			color: #333;
+		}
+		#input_name{
+			position: absolute;
+			top: 70px;
+			left: 60px;
+			width: 210px;
+			height: 28px;
+			border-radius: 6px;
+		}
+		#input_password{
+			position: absolute;
+			top: 113px;
+			left: 60px;
+			width: 210px;
+			height: 28px;
+			border-radius: 6px;
+		}
+		#button_login{
+			position: absolute;
+			top: 160px;
+			left: 60px;
+			width: 110px;
+			height: 40px;
+			border-radius: 5px;
+		}
+		#button_cancel{
+			position: absolute;
+			top: 160px;
+			left: 175px;
+			width: 101px;
+			height: 40px;
+			border-radius: 5px;
+		}
 	</style>
 </head>
 <body>
+	<h1>Reservas GYM</h1>
+
+	<div id="ventana" class="ligthbox hidden"> <!--esto viene del css-->
+		<div class="login_content">
+			<div id="cerrar" class="close_button">x</div>
+			<input type="text" id="input_name" placeholder="Nombre"> <br>
+			<input type="button" id="button_login" value="Reservar" onclick="reservar();">
+		</div>
+	</div>
+
 	<div id="cuadricula">
-	<!-- <input type="button" class="naranja" value="1"> -->
+		<div id="puesto_1" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(1);">
+		</div>
+		<div id="puesto_2" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(2);">
+		</div>
+		<div id="puesto_3" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(3);">
+		</div>
+		<div id="puesto_4" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(4);">
+		</div>
+		<div id="puesto_5" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(5);">
+		</div>
+		<div id="puesto_6" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(6);">
+		</div>
+		<div id="puesto_7" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(7);">
+		</div>
+		<div id="puesto_8" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(8);">
+		</div>
+		<div id="puesto_9" class="disponible">
+			<h2>Disponible</h2>
+			<input type="button" value="Reserva" onclick="crearReserva(9);">
+		</div>
+	</div>
+		<!-- <div class="reservado">
+			<h2 class="rotar">Reservado</h2> <br>
+			<p>Por: Ana</p>
+		</div> -->
+
 	</div>
 </body>
 </html>
+ <!-- TAREA: ¿Cómo hacer para quitar la reserva? -->

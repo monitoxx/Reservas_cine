@@ -1,9 +1,62 @@
+var puesto_actual;
+var id_actual;
+
 window.onload = init;
 
 function init (){
-	pintarCuadricula();
+	//pintarCuadricula();
+	cerrar.addEventListener("click",cerrarVentana);
+	cargarReserva();
 }
-function pintarCuadricula(){
+
+function crearReserva(numero)
+{//este me lo está trayendo del onclick del html.
+
+	/*ventana.className = "ligthbox";
+	alert(numero);
+	alert("puesto_"+numero);
+	var puesto = document.getElementById("puesto_"+numero); //Para que traiga el puesto al que le dan click y así modificarle la clase. 
+	Reservado está difinido en css, por esto se creó puesto. 
+
+	puesto.className = "reservado";*/
+	
+	id_actual = "puesto_"+numero;
+	puesto_actual = document.getElementById(id_actual);
+	ventana.className = "ligthbox"; // aquí estoy haciendo que se muestre lightbox
+	input_name.value = ""; //acá es donde se establece el nombre del que hace la reserva
+}
+function cerrarVentana(){
+	ventana.className = "ligthbox hidden"; 
+	// className es una propiedad para cambiar el nombre de la clase en el html (como sobrescribir la info)
+}
+function reservar(){
+	if (input_name.value!="") 
+	{
+		puesto_actual.className = "reservado"; //estoy haciendo que cambie la clase del puesto en específico.
+		puesto_actual.innerHTML = "<h2>Reservado</h2>"+input_name.value; //estoy haciendo que diga reservado y el nombre.
+		localStorage.setItem(id_actual,"<h2>Reservado</h2>"+input_name.value);
+		cerrarVentana();
+	}
+	else {
+		alert("Error, introduzca el nombre de la reserva");
+	}
+}
+function cargarReserva(){
+	var puesto;
+	for (var i = 1; i <= 9; i++) {
+		//console.log(localStorage.getItem("puesto_"+i));
+		if (localStorage.getItem("puesto_"+i)!=null) 
+		{
+				puesto = document.getElementById("puesto_"+i);
+				puesto.className = "reservado"; //ya le cambiamos la clase
+				puesto.innerHTML = localStorage.getItem("puesto_"+i);
+		}
+	}
+}
+
+
+function pintarCuadricula()
+{
 
 	var html = "";
 	// var inicio = 1;
