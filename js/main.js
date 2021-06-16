@@ -50,6 +50,8 @@ function cargarReserva(){
 				puesto = document.getElementById("puesto_"+i);
 				puesto.className = "reservado"; //ya le cambiamos la clase
 				puesto.innerHTML = localStorage.getItem("puesto_"+i);
+				editar.className = "btn_editar";
+
 		}
 	}
 }

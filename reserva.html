@@ -5,127 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Reserva</title>
 	<script src="js/main.js"></script>
-	<style type="text/css">
-		.naranja{
-			background-color: orange;
-		}
-		.gris{
-			background-color: gray;
-		}
-		#cuadricula{
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(3, 1fr);
-			grid-column-gap: 13px;
-			grid-row-gap: 6px;
-			width: 500px;
-			width: 500px;
-			margin: 0 auto;
-			border: 1px solid black;
-			background-color: #098484;
-		}
-		.disponible{
-			border: 1px solid black;
-			text-align: center;
-		}
-		.reservado{
-			/*transform: rotate(-45deg);*/
-			border: 1px solid black;
-			text-align: center;
-			background-color: deeppink;
-			color: whitesmoke;
-		}
-		/*.rotar{
-			transform: rotate(-35deg);
-		}*/
-
-		body{
-			margin: 0;
-			padding: 0;
-		}
-		#abrir{
-		  width:150px;
-		  height:50px;
-		  display:block;
-		  margin:100px auto;
-		}
-		.show{
-		  display:block;
-		}
-		.hidden{
-		  display:none;
-		}
-		.ligthbox{
-			position: fixed;
-			top:0px;
-			left:0px;
-			width: 100%;
-			height: 100%;
-			background:rgba(0,0,0,.6);
-		}
-		.login_content{
-			position: relative;
-			background-color: #999;
-			width: 353px;
-			height: 230px;
-			margin-right: auto;
-			margin-left: auto;
-			top:50%;
-			margin-top: -115px;
-			border-radius: 5%;
-		}
-		.close_button{
-			position: absolute;
-			background-color: #333;
-			top: 10px;
-			right: 10px;
-			color: white;
-			width: 40px;
-			height: 40px;
-			text-align: center;
-			border-radius: 20px;
-			cursor: pointer;
-			font-size: 23px;
-			line-height: 34px;
-			font-family: verdana;
-		}
-		.close_button:hover{
-			background-color: white;
-			color: #333;
-		}
-		#input_name{
-			position: absolute;
-			top: 70px;
-			left: 60px;
-			width: 210px;
-			height: 28px;
-			border-radius: 6px;
-		}
-		#input_password{
-			position: absolute;
-			top: 113px;
-			left: 60px;
-			width: 210px;
-			height: 28px;
-			border-radius: 6px;
-		}
-		#button_login{
-			position: absolute;
-			top: 160px;
-			left: 60px;
-			width: 110px;
-			height: 40px;
-			border-radius: 5px;
-		}
-		#button_cancel{
-			position: absolute;
-			top: 160px;
-			left: 175px;
-			width: 101px;
-			height: 40px;
-			border-radius: 5px;
-		}
-	</style>
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 	<h1>Reservas GYM</h1>
@@ -138,42 +18,64 @@
 		</div>
 	</div>
 
+	<div id="editar" class="btn_editar hidden">
+		<img src="imgs/btn_editar.svg" alt="">
+	</div>
+
 	<div id="cuadricula">
 		<div id="puesto_1" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(1);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(1);"> -->
+			<img class="btn_agregar" onClick="crearReserva(1)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_2" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(2);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(2);"> -->
+			<img class="btn_agregar" onClick="crearReserva(2)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_3" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(3);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(3);"> -->
+			<img class="btn_agregar" onClick="crearReserva(3)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_4" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(4);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(4);"> -->
+			<img class="btn_agregar" onClick="crearReserva(4)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_5" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(5);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(5);"> -->
+			<img class="btn_agregar" onClick="crearReserva(5)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_6" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(6);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(6);"> -->
+			<img class="btn_agregar" onClick="crearReserva(6)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_7" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(7);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(7);"> -->
+			<img class="btn_agregar" onClick="crearReserva(7)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_8" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(8);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(8);"> -->
+			<img class="btn_agregar" onClick="crearReserva(8)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 		<div id="puesto_9" class="disponible">
 			<h2>Disponible</h2>
-			<input type="button" value="Reserva" onclick="crearReserva(9);">
+			<!-- <input type="button" value="Reserva" onclick="crearReserva(9);"> -->
+			<img class="btn_agregar" onClick="crearReserva(9)" src="imgs/btn_agregar.svg" alt="">
+			<img id="editar" class="btn_editar hidden" src="imgs/btn_editar.svg" alt="">
 		</div>
 	</div>
 		<!-- <div class="reservado">
