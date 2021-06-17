@@ -22,6 +22,7 @@
 		border: 1px solid black;
 		text-align: center;
 		background: orange;
+		position: relative;
 		}
 .reservado{
 		/*transform: rotate(-45deg);*/
@@ -29,10 +30,25 @@
 		text-align: center;
 		background-color: deeppink;
 		color: whitesmoke;
+		position: relative;
 		}
 		/*.rotar{
 			transform: rotate(-35deg);
 		}*/
+.btn_agregar,.btn_editar{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		cursor: pointer;
+		right: 10px;
+		bottom: 5px;
+}
+#titulo{
+	text-align: center;
+	text-shadow: purple;
+	font-family: fantasy;
+	font-style: italic;
+}
 
 body{
 		margin: 0;
@@ -122,16 +138,3 @@ body{
 		height: 40px;
 		border-radius: 5px;
 		}
-.btn_agregar{
-		width: 30px;
-		height: 30px;
-		position: relative;
-		cursor: pointer;
-}
-.btn_editar{
-		width: 30px;
-		height: 30px;
-		position: relative;
-		cursor: pointer;
-		right: 0;
-}
