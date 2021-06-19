@@ -8,11 +8,12 @@ window.onload = init;
 function init (){
 	//pintarCuadricula();
 	cerrar.addEventListener("click",cerrarVentana);
+	reservas = []
 	cargarReserva();
 }
 
 function cargarReserva(){
-	var puesto;
+	var puesto, usuario;
 	for (var i = 1; i <= 9; i++) //i = i+1
 	{
 		//console.log(localStorage.getItem("puesto_"+i));
@@ -21,8 +22,21 @@ function cargarReserva(){
 				puesto = document.getElementById("puesto_"+i);
 				usuario = JSON.parse(localStorage.getItem("puesto_"+i));
 				actualizarEstado(puesto,usuario);
+				reservas[i]= usuario;
 		}
 	}
+}
+function cerrarVentana(){
+	ventana.className = "ligthbox hidden"; 
+	// className es una propiedad para cambiar el nombre de la clase en el html (como sobrescribir la info)
+}
+function mostrarVentana(datos)
+{
+	id_actual = "puesto_"+datos.numero;
+	id_boton = datos.numero;
+	puesto_actual = document.getElementById(id_actual);
+	ventana.className = "ligthbox";
+	input_name.value = datos.nombre?datos.nombre:"";
 }
 function crearReserva(numero)
 {//este me lo está trayendo del onclick del html.
@@ -33,21 +47,19 @@ function crearReserva(numero)
 	var puesto = document.getElementById("puesto_"+numero); //Para que traiga el puesto al que le dan click y así modificarle la clase. 
 	Reservado está difinido en css, por esto se creó puesto. 
 
-	puesto.className = "reservado";*/
-	
+	puesto.className = "reservado";
+	///////////////////////////////////////////////////
 	id_actual = "puesto_"+numero;
 	id_boton = numero;
 	puesto_actual = document.getElementById(id_actual);
 	ventana.className = "ligthbox"; // aquí estoy haciendo que se muestre lightbox
-	input_name.value = ""; //acá es donde se establece el nombre del que hace la reserva
+	input_name.value = ""; //acá es donde se establece el nombre del que hace la reserva*/
+
+	mostrarVentana({nombre:"",numero:numero});
 }
 
 function editarReserva(numero){
-	alert(numero);
-}
-function cerrarVentana(){
-	ventana.className = "ligthbox hidden"; 
-	// className es una propiedad para cambiar el nombre de la clase en el html (como sobrescribir la info)
+	mostrarVentana({nombre:reservas[numero].nombre,numero:numero});
 }
 function actualizarEstado(puesto,usuario)
 {
@@ -63,6 +75,7 @@ function reservar(){
 	{
 		usuario = {nombre:input_name.value,id:id_boton};
 		actualizarEstado(puesto_actual,usuario);
+		reservas[id_boton] = usuario;
 		localStorage.setItem(id_actual,JSON.stringify(usuario));
 		cerrarVentana();
 	}
