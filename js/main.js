@@ -2,28 +2,42 @@ var puesto_actual;
 var id_actual;
 var id_boton;
 var reservas;
+var horario;
+var hora_actual;
 
 window.onload = init;
 
 function init (){
 	//pintarCuadricula();
 	cerrar.addEventListener("click",cerrarVentana);
-	reservas = []
+	hora_actual = localStorage.getItem("hora");
 	cargarReserva();
 }
 
 function cargarReserva(){
 	var puesto, usuario;
-	for (var i = 1; i <= 9; i++) //i = i+1
+	reservas = [];
+
+	if(localStorage.getItem("horario")!=null)
 	{
-		//console.log(localStorage.getItem("puesto_"+i));
-		if (localStorage.getItem("puesto_"+i)!=null) 
+		horario = JSON.parse(localStorage.getItem("horario"));//JSON.parse es para devolver un arreglo (texto)
+		reservas = (horario[hora_actual]==null)?[]:horario[hora_actual];
+
+		if(reservas!=null)
 		{
-				puesto = document.getElementById("puesto_"+i);
-				usuario = JSON.parse(localStorage.getItem("puesto_"+i));
-				actualizarEstado(puesto,usuario);
-				reservas[i]= usuario;
+			for(var i=1;i<=9;i++)//i = i + 1
+			{
+				if(reservas[i]!=null)
+				{
+					puesto = document.getElementById("puesto_"+i);			
+					usuario = reservas[i];
+					actualizarEstado(puesto,usuario);
+				}
+			}
 		}
+	}
+	else{
+		horario = [];
 	}
 }
 function cerrarVentana(){
@@ -61,12 +75,20 @@ function crearReserva(numero)
 function editarReserva(numero){
 	mostrarVentana({nombre:reservas[numero].nombre,numero:numero});
 }
+function cancelarReserva(numero){
+	reservas = null;
+	horario[hora_actual] = reservas;
+	localStorage.setItem("horario",JSON.stringify(horario));
+	location.reload(); //permite recargar la página
+}
 function actualizarEstado(puesto,usuario)
 {
 	 var temp;
 	  puesto.className = "reservado";
 		temp = "<h2>Reservado</h2>"+usuario.nombre;
+		temp += '<img class="btn_cancelar" onClick="cancelarReserva('+usuario.id+');" src="imgs/btn_cancelar.svg" alt="">';
 		temp += '<img class="btn_editar" onClick="editarReserva('+usuario.id+');" src="imgs/btn_editar.svg" alt="">';
+		//temp += es para concatenar... quiere decir que en la misma linea van a quedar expresados
 		puesto.innerHTML = temp;
 }
 function reservar(){
@@ -76,13 +98,17 @@ function reservar(){
 		usuario = {nombre:input_name.value,id:id_boton};
 		actualizarEstado(puesto_actual,usuario);
 		reservas[id_boton] = usuario;
-		localStorage.setItem(id_actual,JSON.stringify(usuario));
+		horario[hora_actual] = reservas;
+		localStorage.setItem("horario",JSON.stringify(horario));//JSON.stringfy es para convertir un numero o valor en cadena, 
+		//pasandole en este caso horario. Quedan entre comillas
 		cerrarVentana();
 	}
 	else {
 		alert("Error, introduzca el nombre de la reserva");
 	}
 }
+
+//
 function pintarCuadricula()
 {
 

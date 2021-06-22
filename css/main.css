@@ -43,6 +43,14 @@
 		right: 10px;
 		bottom: 5px;
 }
+.btn_cancelar{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		cursor: pointer;
+		left: 10px;
+		bottom: 5px;
+}
 #titulo{
 	text-align: center;
 	text-shadow: purple;
