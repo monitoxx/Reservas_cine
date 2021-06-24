@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reservas_Cine</title>
+	<title>Reservas_GYM</title>
 	<script>
 
 		let usuario, clave, btn_enviar; 
@@ -46,13 +46,15 @@
 			}
 		}
 	</script>	
+	<link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body id="body">
+	<h1 id="titulo">Inicia Sesión</h1>
 	<form id="logeo">
 		<input type="text" placeholder="Usuario" id="usuario"> <br> <!--<br> es como si uno hiciera enter a una linea-->
-		<input type="password" placeholder="Contraseña" id="clave"> <br>
+		<input type="password" placeholder="Contraseña" id="clave"> <br><br>
 
-		<a href="registro.html">Registrate</a> <br><br> <!-- este es un doble espacio-->
+		<a id="registrate" href="registro.html">Registrate</a> <br><br> <!-- este es un doble espacio-->
 
 		<input type="button" value="Enviar" id="btn_enviar">
 	</form> <!-- form es para hacer formularios -->

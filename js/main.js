@@ -72,35 +72,54 @@ function crearReserva(numero)
 	mostrarVentana({nombre:"",numero:numero});
 }
 
-function editarReserva(numero){
-	mostrarVentana({nombre:reservas[numero].nombre,numero:numero});
-}
-function cancelarReserva(numero){
+/*function cancelarReserva(numero){
 	reservas = null;
 	horario[hora_actual] = reservas;
 	localStorage.setItem("horario",JSON.stringify(horario));
 	location.reload(); //permite recargar la página
+}*/
+function actualizarReserva(usuario){
+	actualizarEstado(puesto_actual,usuario);
+	reservas[id_boton] = usuario;
+	horario[hora_actual] = reservas;
+	localStorage.setItem("horario",JSON.stringify(horario));//JSON.stringfy es para convertir un numero o valor en cadena, 
+	//pasandole en este caso horario. Quedan entre comillas
 }
-function actualizarEstado(puesto,usuario)
-{
+function editarReserva(numero){
+	mostrarVentana({nombre:reservas[numero].nombre,numero:numero});
+}
+function eliminarReserva(numero){
+	var entrada = confirm("¿Seguro que quiere cancelar la reserva de "+numero+"?")
+	if(entrada)
+	{
+		id_boton = numero;
+		actualizarReserva(null);
+	}
+}
+function actualizarEstado(puesto,usuario){
 	 var temp;
-	  puesto.className = "reservado";
+	 if (usuario!=null) 
+	 {
+	 	puesto.className = "reservado";
 		temp = "<h2>Reservado</h2>"+usuario.nombre;
-		temp += '<img class="btn_cancelar" onClick="cancelarReserva('+usuario.id+');" src="imgs/btn_cancelar.svg" alt="">';
+		temp += '<img class="btn_cancelar" onClick="eliminarReserva('+usuario.id+');" src="imgs/btn_cancelar.svg" alt="">';//al hacer click se activa la función cancelarReserva
 		temp += '<img class="btn_editar" onClick="editarReserva('+usuario.id+');" src="imgs/btn_editar.svg" alt="">';
 		//temp += es para concatenar... quiere decir que en la misma linea van a quedar expresados
-		puesto.innerHTML = temp;
+	}
+	else{
+		puesto = document.getElementById("puesto_"+id_boton);
+		puesto.className = "disponible";
+		temp = "<h2>Disponible</h2>";
+		temp += '<img class="btn_agregar" onClick="crearReserva('+id_boton+');" src="imgs/btn_agregar.svg" alt="">';
+	}
+	puesto.innerHTML = temp;
 }
 function reservar(){
 	var usuario;
 	if (input_name.value!="") 
 	{
 		usuario = {nombre:input_name.value,id:id_boton};
-		actualizarEstado(puesto_actual,usuario);
-		reservas[id_boton] = usuario;
-		horario[hora_actual] = reservas;
-		localStorage.setItem("horario",JSON.stringify(horario));//JSON.stringfy es para convertir un numero o valor en cadena, 
-		//pasandole en este caso horario. Quedan entre comillas
+		actualizarReserva(usuario);
 		cerrarVentana();
 	}
 	else {

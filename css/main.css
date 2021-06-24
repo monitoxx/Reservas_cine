@@ -10,19 +10,24 @@
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(3, 1fr);
 		grid-column-gap: 13px;
-		grid-row-gap: 6px;
+		grid-row-gap: 12px;
 		width: 500px;
 		width: 500px;
 		margin: 0 auto;
-		border: 1px solid black;
-		background-color: #098484;
+		/*border: 1px solid black;*/
+		
 		}
 .disponible{
 
 		border: 1px solid black;
 		text-align: center;
-		background: orange;
+		background-color: grey;
+		color: lightcyan;
 		position: relative;
+		font-family: verdana;
+		font-size: 14px;
+		border-radius: 10px;
+		cursor: default;
 		}
 .reservado{
 		/*transform: rotate(-45deg);*/
@@ -31,6 +36,10 @@
 		background-color: deeppink;
 		color: whitesmoke;
 		position: relative;
+		font-family: verdana;
+		font-size: 14px;
+		border-radius: 10px;
+		cursor: default;
 		}
 		/*.rotar{
 			transform: rotate(-35deg);
@@ -53,15 +62,27 @@
 }
 #titulo{
 	text-align: center;
-	text-shadow: purple;
+	text-shadow: white;
 	font-family: fantasy;
-	font-style: italic;
 }
 
-body{
-		margin: 0;
+#body{
+		margin: 100px auto;
+		text-align: center ;
 		padding: 0;
-		}
+		/*background-color: #098484;*/
+		/*background-image: radial-gradient(circle, #098484, #00a288, #00be79, #5bd758, #a8eb12);*/
+		/*background-image: linear-gradient(to right bottom, #098484, #249782, #4ba87a, #76b76e, #a5c461);*/
+		/*background-image: linear-gradient(to right bottom, #098484, #009d87, #17b57c, #5bca65, #99dc43);*/
+
+		background-image: linear-gradient(to right bottom, #20202f, #273550, #416081, #adacb2, #eac3a2);
+		/*https://codepen.io/cobaltblue/pen/tkvmi?editors=1100*/
+
+		/*Para que quede completo el fondo*/
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+}
 #abrir{
 	  width:150px;
 	  height:50px;
@@ -120,6 +141,7 @@ body{
 		width: 210px;
 		height: 28px;
 		border-radius: 6px;
+		font-family: verdana;
 		}
 #input_password{
 		position: absolute;
@@ -128,6 +150,7 @@ body{
 		width: 210px;
 		height: 28px;
 		border-radius: 6px;
+		font-family: verdana;
 		}
 #button_login{
 		position: absolute;
@@ -137,6 +160,7 @@ body{
 		height: 40px;
 		border-radius: 5px;
 		cursor: pointer;
+		font-family: verdana;
 		}
 #button_cancel{
 		position: absolute;
@@ -145,4 +169,24 @@ body{
 		width: 101px;
 		height: 40px;
 		border-radius: 5px;
+		font-family: verdana;
 		}
+#usuario, #clave, #nombre, #correo, #clave2, #fecha{
+	font-family: verdana;
+	width: 200px;
+	height: 30px;
+	border-radius: 6px;
+}
+#registrate{
+	font-family: verdana;
+	width: 200px;
+	height: 30px;
+	border-radius: 6px;
+	color: blanchedalmond;
+}
+#btn_enviar, #btn_registro, #btn_consultar{
+	font-family: verdana;
+	width: 100px;
+	cursor: pointer;
+	border-radius: 6px;
+}
