@@ -89,7 +89,7 @@ function editarReserva(numero){
 	mostrarVentana({nombre:reservas[numero].nombre,numero:numero});
 }
 function eliminarReserva(numero){
-	var entrada = confirm("¿Seguro que quiere cancelar la reserva de "+numero+"?")
+	var entrada = confirm("¿Seguro que quiere cancelar su reserva en el puesto "+numero+"?")
 	if(entrada)
 	{
 		id_boton = numero;
