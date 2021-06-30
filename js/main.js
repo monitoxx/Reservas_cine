@@ -12,6 +12,7 @@ function init (){
 	cerrar.addEventListener("click",cerrarVentana);
 	hora_actual = localStorage.getItem("hora");
 	cargarReserva();
+	btn_finalizar.addEventListener("click",finalizar);
 }
 
 function cargarReserva(){
@@ -125,6 +126,15 @@ function reservar(){
 	else {
 		alert("Error, introduzca el nombre de la reserva");
 	}
+}
+
+function finalizar(){
+	var final = confirm("¿Está seguro de finalizar el proceso de reserva? Se cerrará su sesión.")
+	if(final)
+	{
+		location.href="index.html"
+	}
+	
 }
 
 //

@@ -21,8 +21,8 @@
 
 		border: 1px solid black;
 		text-align: center;
-		background-color: grey;
-		color: lightcyan;
+		background-color: #7EE38B;/*#36CCED; */
+		color: black;
 		position: relative;
 		font-family: verdana;
 		font-size: 11px;
@@ -37,7 +37,7 @@
 		/*transform: rotate(-45deg);*/
 		border: 1px solid black;
 		text-align: center;
-		background-color: deeppink;
+		background-color:#ED368F; /* #FF7425;/*#236F90;*/
 		color: whitesmoke;
 		position: relative;
 		font-family: verdana;
@@ -71,20 +71,34 @@
 #titulo{
 	text-align: center;
 	text-shadow: white;
-	font-family: fantasy;
-	color: navajowhite;
+	font-family: 'Big Shoulders Stencil Display', cursive;
+	font-size: 55px;
+	color: #ED368F;/*#FF7425*/
 }
-
+#titulo_sec{
+	text-align: center;
+	text-shadow: white;
+	font-size: 40px;
+	font-family: 'Big Shoulders Stencil Display', cursive;
+	color: #ED368F;/*#FF7425*/
+}
 #body{
 		margin: 100px auto;
 		text-align: center ;
 		padding: 0;
-		/*background-color: #098484;*/
+		/*background-color: #26273F; /*#098484;*/
 		/*background-image: radial-gradient(circle, #098484, #00a288, #00be79, #5bd758, #a8eb12);*/
 		/*background-image: linear-gradient(to right bottom, #098484, #249782, #4ba87a, #76b76e, #a5c461);*/
 		/*background-image: linear-gradient(to right bottom, #098484, #009d87, #17b57c, #5bca65, #99dc43);*/
 
-		background-image: linear-gradient(to right bottom, #20202f, #273550, #416081, #adacb2, #eac3a2);
+		/*background-image: linear-gradient(to bottom, #0d0c0c, #2e1212, #4c1314, #691012, #870b0b);*/
+		/*background-image: radial-gradient(circle, #0d0c0c, #2e1212, #4c1314, #691012, #870b0b);*/
+		/*background-image: linear-gradient(to top, #0d0c0c, #2e1212, #4c1314, #691012, #870b0b);*/
+		/*background-image: linear-gradient(to bottom, #0d0c0c, #401517, #72141a, #a50b15, #d80000);*/
+
+		/*background-image: linear-gradient(to right bottom, #040404, #0a0a0a, #0f0f0f, #131313, #171717, #232323, #2f3030, #3c3d3e, #565859, #717476, #8d9293, #abb1b1);*/
+		background-image: url("../imgs/fondo_spinn.jpg");
+		/*background-image: linear-gradient(to right bottom, #20202f, #273550, #416081, #adacb2, #eac3a2);*/
 		/*https://codepen.io/cobaltblue/pen/tkvmi?editors=1100*/
 
 		/*Para que quede completo el fondo*/
@@ -223,9 +237,9 @@
 	-moz-border-radius: 6px;/*Mozilla*/
 	-ms-border-radius: 6px;
 	-o-border-radius: 6px;/*Opera*/
-	color: blanchedalmond;
+	color: #ED368F;
 }
-#btn_enviar, #btn_registro, #btn_consultar{
+#btn_enviar, #btn_registro, #btn_consultar, #btn_finalizar{
 	font-family: verdana;
 	width: 100px;
 	cursor: pointer;
